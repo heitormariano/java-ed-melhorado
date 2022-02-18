@@ -7,7 +7,7 @@ public class TesteStack {
 	public static void main(String[] args) {
 		Stack<String> fakeNames = new Stack<String>();
 
-		// criando elementos
+		// criando elementos (usando o push)
 
 		for (int i = 0; i < 5; i++) {
 			String name = "Person_";
@@ -15,14 +15,14 @@ public class TesteStack {
 			fakeNames.push(name);
 		}
 
-		// imprimindo elementos
+		// imprimindo elementos (usando o get)
 		for (int i = 0; i < fakeNames.size(); i++) {
 			System.out.println(fakeNames.get(i));
 		}
 
 		System.out.println("Pilha Vazia? " + (fakeNames.isEmpty() ? "SIM" : "NÃO"));
 
-		// usando métodos peek e pop
+		// usando métodos peek (espiar elemento do topo) e pop
 		System.out.println("Uso peek: " + fakeNames.peek());
 		System.out.println("Lista após peek: " + fakeNames);
 
