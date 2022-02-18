@@ -1,4 +1,4 @@
-package br.com.ed.vetor.teste;
+package br.com.ed.pilha.teste;
 
 import java.util.Stack;
 
