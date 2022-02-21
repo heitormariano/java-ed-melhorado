@@ -55,6 +55,14 @@ public class EstruturaEstatica<T> {
 		return elemRemovido;
 	}
 
+	public T busca(int posicao) {
+		if (!isPosicaoValida(posicao)) {
+			throw new IllegalArgumentException("Posição Inválida");
+		}
+
+		return elementos[posicao];
+	}
+
 	@SuppressWarnings("unchecked")
 	private void aumentaCapacidade() {
 		if (tamanho == elementos.length) {
