@@ -9,7 +9,6 @@ public class Exer05 {
 	private static Scanner scan;
 
 	public static void main(String[] args) {
-		pilhaCaracteres = new Stack<Character>();
 		scan = new Scanner(System.in);
 		boolean fimPrograma = false;
 
@@ -29,7 +28,6 @@ public class Exer05 {
 
 	private static boolean lerOpcao() {
 		boolean flagEncerramento = false;
-
 		int opcao = lerInformacaoInt("");
 
 		switch (opcao) {
@@ -63,6 +61,7 @@ public class Exer05 {
 	}
 
 	private static void gerarPilhaCaracteres(String palavra) {
+		pilhaCaracteres = new Stack<Character>();
 		for (int i = 0; i <= palavra.length() - 1; i++) {
 			pilhaCaracteres.push(palavra.charAt(i));
 		}
