@@ -24,7 +24,7 @@ public class Exer06 {
 
 			switch (opcao) {
 			case 0:
-				printMensagem("Fim Programa");
+				imprimirMensagem("Fim Programa");
 				break;
 			case 1:
 				adicionarContatoNoFinal();
@@ -60,7 +60,7 @@ public class Exer06 {
 				limparLista();
 				break;
 			default:
-				printMensagem("Opção inválida. Digite novamente\n\n");
+				imprimirMensagem("Opção inválida. Digite novamente\n\n");
 				break;
 			}
 		}
@@ -71,32 +71,31 @@ public class Exer06 {
 		String entrada;
 		int opcaoUsuario = -1;
 
-		printMensagem("Exercício 06");
-		printMensagem("Escolha uma das opções:");
-		printMensagem("1 - Adicionar contato no final");
-		printMensagem("2 - Adicionar contato em uma posição");
-		printMensagem("3 - Adicionar contatos (30) automaticamente");
-		printMensagem("4 - Buscar contato (usando índice)");
-		printMensagem("5 - Buscar contato (usando nome)");
-		printMensagem("6 - Buscar último índice de Contato");
-		printMensagem("7 - Remover contato (usando índice)");
-		printMensagem("8 - Remover contato (informando nome)");
-		printMensagem("9 - Consultar tamanho lista");
-		printMensagem("10 - Imprimir contatos da Lista");
-		printMensagem("11 - Limpar lista");
-		printMensagem("0 - Encerrar o Programa");
+		imprimirMensagem("Exercício 06");
+		imprimirMensagem("Escolha uma das opções:");
+		imprimirMensagem("1 - Adicionar contato no final");
+		imprimirMensagem("2 - Adicionar contato em uma posição");
+		imprimirMensagem("3 - Adicionar contatos (30) automaticamente");
+		imprimirMensagem("4 - Buscar contato (usando índice)");
+		imprimirMensagem("5 - Buscar contato (usando nome)");
+		imprimirMensagem("6 - Buscar último índice de Contato");
+		imprimirMensagem("7 - Remover contato (usando índice)");
+		imprimirMensagem("8 - Remover contato (informando nome)");
+		imprimirMensagem("9 - Consultar tamanho lista");
+		imprimirMensagem("10 - Imprimir contatos da Lista");
+		imprimirMensagem("11 - Limpar lista");
+		imprimirMensagem("0 - Encerrar o Programa");
 
 		try {
 			entrada = scan.nextLine();
 			opcaoUsuario = Integer.parseInt(entrada);
 
 		} catch (Exception e) {
-			printMensagem("Letras informadas pelo usuário");
+			imprimirMensagem("Letras informadas pelo usuário");
 		}
 
 		// obs.:
-		// Quando ocorre exceção, o valor de opcaoUsuario
-		// é definido como -1
+		// Quando ocorre exceção, o valor de opcaoUsuario é definido como -1
 		// No switch de apresentarMenu terminamos "entrando" na opção default
 		return opcaoUsuario;
 	}
@@ -104,7 +103,7 @@ public class Exer06 {
 	public static void adicionarContatoNoFinal() {
 		Contato contato = new Contato();
 
-		printMensagem("Inclusão de novo contato");
+		imprimirMensagem("Inclusão de novo contato");
 
 		String nome = lerInformacaoStr("Informe nome:");
 		String telefone = lerInformacaoStr("Informe telefone:");
@@ -120,7 +119,7 @@ public class Exer06 {
 	public static void adicionarContato() {
 		Contato contato = new Contato();
 
-		printMensagem("Inclusão de novo contato");
+		imprimirMensagem("Inclusão de novo contato");
 		String nome = lerInformacaoStr("Informe nome:");
 		String telefone = lerInformacaoStr("Informe telefone:");
 		String email = lerInformacaoStr("Informe E-mail:");
@@ -160,9 +159,9 @@ public class Exer06 {
 		}
 
 		if (lista.tamanho() == 30) {
-			printMensagem("Contatos criados para a lista\n");
+			imprimirMensagem("Contatos criados para a lista\n");
 		} else {
-			printMensagem("Ocorreu um problema na geração dos contatos\n");
+			imprimirMensagem("Ocorreu um problema na geração dos contatos\n");
 		}
 	}
 
@@ -170,22 +169,22 @@ public class Exer06 {
 		Contato contato;
 
 		try {
-			printMensagem("Busca de contato");
+			imprimirMensagem("Busca de contato");
 			int indice = lerInformacaoInt("Informe o índice do contato:");
 
 			contato = lista.busca(indice);
 			if (contato != null) {
-				printMensagem("Contato encontrado:\n" + contato.toString() + "\n");
+				imprimirMensagem("Contato encontrado:\n" + contato.toString() + "\n");
 			} else {
-				printMensagem("Não existe contato com o índice informado");
+				imprimirMensagem("Não existe contato com o índice informado");
 			}
 		} catch (IllegalArgumentException e) {
-			printMensagem("Posição informada inválida!\n");
+			imprimirMensagem("Posição informada inválida!\n");
 		}
 	}
 
 	public static void buscarContatoPorNome() {
-		printMensagem("Busca de contato por nome");
+		imprimirMensagem("Busca de contato por nome");
 		boolean contatoEncontrado = false;
 
 		String nome = lerInformacaoStr("Informe o nome:");
@@ -195,20 +194,20 @@ public class Exer06 {
 				{
 					Contato contato = lista.obtem(i);
 					contatoEncontrado = true;
-					printMensagem("Dados do contato encontrado:");
-					printMensagem(contato.toString());
+					imprimirMensagem("Dados do contato encontrado:");
+					imprimirMensagem(contato.toString());
 				}
 			}
 		}
 
 		if (!contatoEncontrado) {
-			printMensagem("Não foi encontrato contato com o nome informado");
+			imprimirMensagem("Não foi encontrato contato com o nome informado");
 		}
 	}
 
 	public static void buscarUltimoIndiceContato() {
 
-		printMensagem("Busca de contato");
+		imprimirMensagem("Busca de contato");
 		int indice = lerInformacaoInt("Informe o índice do contato:");
 
 		Contato contato = null;
@@ -218,13 +217,13 @@ public class Exer06 {
 			int ultimoIndice = lista.ultimoIndice(contato);
 
 			if (ultimoIndice > -1) {
-				printMensagem("Último índice do contato: " + ultimoIndice);
+				imprimirMensagem("Último índice do contato: " + ultimoIndice);
 			} else {
-				printMensagem("Não existe contato para o índice informado.");
-				printMensagem("Por favor, revise a lista");
+				imprimirMensagem("Não existe contato para o índice informado.");
+				imprimirMensagem("Por favor, revise a lista");
 			}
 		} catch (IllegalArgumentException e) {
-			printMensagem("Posição inválida informada. Tente novamente");
+			imprimirMensagem("Posição inválida informada. Tente novamente");
 		}
 
 	}
@@ -232,22 +231,22 @@ public class Exer06 {
 	public static void removerContatoPorPosicao() {
 
 		if (lista.tamanho() > 0) {
-			printMensagem("Remoção de contato:");
+			imprimirMensagem("Remoção de contato:");
 			int indice = lerInformacaoInt("Informe o índice do contato:");
 
 			Contato contatoExcluido = lista.remove(indice);
 
-			printMensagem("Contato removido com sucesso");
-			printMensagem("Dados do contato excluído:\n" + contatoExcluido);
+			imprimirMensagem("Contato removido com sucesso");
+			imprimirMensagem("Dados do contato excluído:\n" + contatoExcluido);
 		} else {
-			printMensagem("Lista vazia. Insira um ou mais contatos antes");
+			imprimirMensagem("Lista vazia. Insira um ou mais contatos antes");
 		}
 	}
 
 	public static void removerContatoPorNome() {
 		if (lista.tamanho() > 0) {
 			boolean contatoRemovido = false;
-			printMensagem("Remoção de contato por nome");
+			imprimirMensagem("Remoção de contato por nome");
 
 			String nome = lerInformacaoStr("Informe o nome do contato:");
 
@@ -256,42 +255,42 @@ public class Exer06 {
 					{
 						Contato contato = lista.remove(i);
 						contatoRemovido = true;
-						printMensagem("Dados do contato removido:");
-						printMensagem(contato.toString());
+						imprimirMensagem("Dados do contato removido:");
+						imprimirMensagem(contato.toString());
 					}
 				}
 			}
 
 			if (!contatoRemovido) {
-				printMensagem("Não foi encontrato contato com o nome informado");
+				imprimirMensagem("Não foi encontrato contato com o nome informado");
 			}
 
 		} else {
-			printMensagem("Lista Vazia. Insira um ou mais contatos");
+			imprimirMensagem("Lista Vazia. Insira um ou mais contatos");
 		}
 
 	}
 
 	public static void limparLista() {
 		lista.limpar();
-		printMensagem("Resultado da limpeza:\n" + lista);
+		imprimirMensagem("Resultado da limpeza:\n" + lista);
 	}
 
 	public static void imprimirLista() {
-		printMensagem("Elementos da Lista:\n" + lista);
+		imprimirMensagem("Elementos da Lista:\n" + lista);
 	}
 
 	public static void obterTamanhoLista() {
 		int tamanhoLista = lista.tamanho();
-		printMensagem("Tamanho (qtd itens guardados): " + tamanhoLista);
+		imprimirMensagem("Tamanho (qtd itens guardados): " + tamanhoLista);
 	}
 
-	public static void printMensagem(String msg) {
+	public static void imprimirMensagem(String msg) {
 		System.out.println(msg);
 	}
 
 	protected static String lerInformacaoStr(String msg) {
-		printMensagem(msg);
+		imprimirMensagem(msg);
 		String entrada = scan.nextLine();
 
 		return entrada;
@@ -304,7 +303,7 @@ public class Exer06 {
 		while (!entradaValida) {
 
 			try {
-				printMensagem(msg);
+				imprimirMensagem(msg);
 				String entrada = scan.nextLine();
 
 				num = Integer.parseInt(entrada);
@@ -312,7 +311,7 @@ public class Exer06 {
 				entradaValida = true;
 
 			} catch (Exception e) {
-				printMensagem("Entrada inválida, digite novamente");
+				imprimirMensagem("Entrada inválida, digite novamente");
 			}
 		}
 
