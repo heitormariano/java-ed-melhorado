@@ -21,7 +21,7 @@ public class Exer08Instrutor {
 
 	}
 
-	// metodo adota recursos de recursao
+	// metodo adota recursao
 	public static void torreDeHanoi(int numDiscos, Stack<Integer> original, Stack<Integer> dest, Stack<Integer> aux) {
 		if (numDiscos > 0) {
 			torreDeHanoi(numDiscos - 1, original, aux, dest);

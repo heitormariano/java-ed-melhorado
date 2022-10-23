@@ -27,16 +27,16 @@ public class Exer04 {
 
 		while (fila.tamanho() > 1) {
 			for (int i = 0; i < num; i++) {
-				// retirando os elementos ("criancas") que estao antes da crianca que sera
-				// eleminada, assim como as reinserindo no final da fila
+				// retirando os elementos ("criancas") que antecedem a crianca que sera
+				// eleminada, assim como as reincluindo no final da fila
 				fila.enfileirar(fila.desenfileirar());
 			}
 
-			// eliminando a "crianca" que esta no ponto de retirada determinado anteiormente
+			// excluindo o elemento ("crianca") que esta no ponto de retirada determinado anteriormente
 			System.out.println("Eliminado = " + fila.desenfileirar());
 		}
 
-		// a ultima "crianca" a permanecer sera a ganhadora
+		// o ultimo elemento ("crianca") a permanecer sera o ganhador
 		System.out.println("Ganhador: " + fila.desenfileirar());
 	}
 
